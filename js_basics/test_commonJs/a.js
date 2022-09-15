@@ -1,8 +1,11 @@
-
 const objectA = {
-    counter: 'origin counter in A'
-}
+  counter: 'origin counter in A',
+};
 
-var b = require('./b.js')
+var doneA = false;
 
-module.exports = {objectA}
+var b = require('./b.js');
+
+doneAa = true;
+
+module.exports = { objectA, done };

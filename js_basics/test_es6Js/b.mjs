@@ -1,5 +1,5 @@
-import { objectA } from './a.mjs'
+import { objectA } from './a.mjs';
 
-objectA.counter = 'changed counter in B'
+objectA.counter = 'changed counter in B';
 
-export const objectB = objectA
+export const objectB = objectA;
