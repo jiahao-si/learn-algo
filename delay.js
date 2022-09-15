@@ -17,9 +17,12 @@ const delayExec = (fn, time) => {
     canRun = false;
 
     timer = setTimeout(() => {
-      cacheFn?.();
-      cacheFn = null;
-      canRun = true;
+      if (typeof cacheFn === 'function') {
+        cacheFn();
+        cacheFn = null;
+      } else {
+        canRun = true;
+      }
     }, time);
   };
 
