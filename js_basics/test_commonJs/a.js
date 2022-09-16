@@ -1,11 +1,9 @@
-const objectA = {
-  counter: 'origin counter in A',
-};
-
-var doneA = false;
+var done = false;
 
 var b = require('./b.js');
 
-doneAa = true;
+module.exports = { doneA: done };
 
-module.exports = { objectA, done };
+setTimeout(() => {
+  done = true;
+}, 100);

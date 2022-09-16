@@ -1,12 +1,5 @@
+var { doneA } = require('./a.js');
 
-var { objectA } = require('./a.js')  
+console.log('console log doneA before a.js export doneA', doneA);
 
-// Uncaught TypeError: Cannot set property 'counter' of undefined
-// objectA.counter = 'changed counter in B'
-
-// const objectB = objectA
-
-module.exports = {}
-// module.exports = {objectB}
-
-// objectA.counter = 'changed counter in B'
+module.exports = { doneB: true };

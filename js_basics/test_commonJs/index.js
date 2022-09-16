@@ -1,6 +1,10 @@
-const { objectA, doneA } = require('./a.js');
-const { objectB } = require('./b.js');
+const { doneA } = require('./a.js');
+const { doneB } = require('./b.js');
 
-console.log('objectA.counter', objectA.counter);
-console.log('objectB.counter', objectB.counter);
 console.log('doneA', doneA);
+console.log('doneB', doneB);
+
+setTimeout(() => {
+  // still be true, because commonjs will cache value
+  console.log('console log doneA after doneA changed in A.js', doneA);
+}, 1000);
