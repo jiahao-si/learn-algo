@@ -1,7 +1,11 @@
-export const objectA = {
-    counter : 'origin counter in A' 
-};
+var done = false;
 
-import { objectB} from './b.mjs'
+import { doneB } from './b.mjs';
 
-console.log('objectB.counter',objectB.counter)
+console.log('console log doneB after b.js export', doneB);
+
+export let doneA = done;
+
+setTimeout(() => {
+  doneA = true;
+}, 100);
