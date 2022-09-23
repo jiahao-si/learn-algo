@@ -17,7 +17,9 @@ console.log(add(1)(2) == 3);
 console.log(add(1)(2)(3) == 6);
 console.log(typeof add(1)(2) === 'function');
 
-// 必须使用  == ，因为在运行 == 时，会进行强制类型转换，调用 valueOf 或 toString， 如果是 字符的类型转化，则
+// 必须使用  == ，在运行 (+-*/==><) 这些操作符时，会进行隐式转换，调用 valueOf 或 toString
+// 所有JS数据类型都拥有这两个方法（位于原型链上），null除外
+// 在数值运算中，优先调用了valueOf，在字符串运算中，优先调用了toString
 
 // class A {
 //   valueOf() {
