@@ -67,3 +67,27 @@ function add2() {
 }
 
 console.log(add2(1)(3, 4)(3, 5)); // 16
+
+// 什么是函数柯里化
+// curry的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
+
+// 实现思路： 判断当前传入函数的参数个数 (args.length) 是否大于等于原函数所需参数个数 (fn.length) ，如果是，则执行当前函数；如果是小于，则返回一个函数
+const curry = (fn, ...args) =>
+  // 函数的参数个数可以直接通过函数数的.length属性来访问
+  args.length >= fn.length // 这个判断很关键！！！
+    ? // 传入的参数大于等于原始函数fn的参数个数，则直接执行该函数
+      fn(...args)
+    : /**
+       * 传入的参数小于原始函数fn的参数个数时
+       * 则继续对当前函数进行柯里化，返回一个接受所有参数（当前参数和剩余参数） 的函数
+       */
+      (..._args) => curry(fn, ...args, ..._args);
+
+function add1(x, y, z) {
+  return x + y + z;
+}
+const add3 = curry(add1);
+console.log(add3(1, 2, 3));
+console.log(add3(1)(2)(3));
+console.log(add3(1, 2)(3));
+console.log(add3(1)(2, 3));
